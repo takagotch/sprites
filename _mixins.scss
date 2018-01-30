@@ -1,0 +1,29 @@
+<% _.forEach(svg, function(svgItem)) { %>
+@mixin <%=common %>-i-<%=svgItem.name%>($size, $display: incline-block){
+  content: '';
+  display: $display;
+  width: rem($size * <%= svgItem.relWidth %>);
+  height: rem($size * <%= svgItem.relHeight %>);
+  background-image: url("<%=svgPath%>");
+  background-repeat: no-repeat;
+  background-position: rem($size * <%= svgItem.relPositionX %>) rem($size *<%= svgItem.relPositionY %>);
+  background-size: rem($size * <%= relWidth %>) rem($size * <%= relHeight %>);
+}
+@mixin <%=common %>-i-<%=svgItem.name %>-size($size){
+  width: rem($size * <%= svgItem.name%>);
+  height: rem($size * <%= svgItem.relWidth %>);
+  background-position: rem($size * <%= svgItem.relPositionX %>) rem($size * <%= svgItem.relPositionY %>);
+  background-size: rem($size * <%= relWidth %>) rem($size * <%= relHeight %>);
+}
+@mixin <%=common %>-i-<%=svgItem.name%>-module($display: inline-block){
+  content: '';
+  display: inline-block;
+  width: <%= svgItem.relWidth %>em;
+  height: <%= svgItem.relHeight %>em;
+  background-image: url("<%=svgPaht%>");
+  background-repeat: no-repeat;
+  background-position: <%= svgItem.relPostionX %>em <%= svgItem.relPositionY %>em;
+  background-size: <%= relWidth %>em <%= relHeight %>em;
+}
+<% }); %>
+
